@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    include jumbotron
+    if games
+        .row
+            each game in games
+                .col-md-4 
+                    h2 #{game.title}
+                    h5 
+                        strong Genre: 
+                        | #{game.genre}
+                    h5 
+                        strong Year: 
+                        | #{game.year}
+                    h5 
+                        strong Multiplayer: 
+                        | #{game.multiplayer}
+                    img.img-thumbnail(src=`${game.imageUrl}`)
+                    br
+                    br
+                    button.btn.btn-warning.col-md-3.col-md-offset-3 
+                        a(href=`/game/${game._id}`) More Info
+    br
+    br                
+    

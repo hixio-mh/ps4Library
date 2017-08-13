@@ -1,0 +1,62 @@
+extends layout
+
+block content
+    if game
+        .display-game
+            h1 #{game.title}
+            
+            h5 
+                strong Genre: 
+                | #{game.genre}
+            h5 
+                strong Developer: 
+                | #{game.developer}
+            h5 
+                strong Year: 
+                | #{game.year}
+            h5 
+                strong Multiplayer: 
+                | #{game.multiplayer}
+            p 
+                strong Description: 
+                | #{game.description}
+            img(src=`${game.imageUrl}`)
+    br 
+    br
+    br
+    form(method='POST' action=`/game/edit/${game._id}`)
+                div.form-group
+                    label(for='title') New Title:
+                    input.form-control(type='text', value=`${game.title}`, name='title')
+                div.form-group
+                    label(for='genre') New Genre:
+                    input.form-control(type='text', value=`${game.genre}`, name='genre')
+                div.form-group
+                    label(for='developer') Developer:
+                    input.form-control(type='text', value=`${game.developer}`, name='developer')
+                div.form-group
+                    label(for='year') Year:
+                    input.form-control(type='text', value=`${game.year}`, name='year')
+                div.form-group
+                    label(for='multiplayer') Multiplayer?:
+                    br
+                    input(type='radio' name='multiplayer', value='true') 
+                    |    Yes
+                    br
+                    input(type='radio' name='multiplayer', value='false')
+                    |    No 
+                    br
+                div.form-group
+                    label(for='imageUrl') Image Url:
+                    input.form-control(type='text', value=`${game.imageUrl}` name='imageUrl')
+                div.form-group
+                    label(for='description') Game Description:
+                    input.form-control(type='textarea', value=`${game.description}`, name='description')
+                button.btn.btn-primary(type='submit') Edit Game
+    br
+    br
+    br
+    form(method='POST' action=`/delete/${game._id}`)
+        .form-group
+            button.btn.btn-danger(type='submit') Delete Game
+  

@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    .main.container.row
+        .col-md-6.col-md-offset-3
+            h1.display-4.m-b-2 New Library Addition
+            
+            //form
+            form(method='POST' action='/addgame')
+                div.form-group
+                    label(for='title') Title:
+                    input.form-control(type='text', placeholder='Game Title', name='title')
+                div.form-group
+                    label(for='genre') Genre:
+                    input.form-control(type='text', placeholder='Game Genre', name='genre')
+                div.form-group
+                    label(for='developer') Developer:
+                    input.form-control(type='text', placeholder='Game Developer', name='developer')
+                div.form-group
+                    label(for='year') Year:
+                    input.form-control(type='text', placeholder='Game Year', name='year')
+                div.form-group
+                    label(for='multiplayer') Multiplayer?:
+                    br
+                    input(type='radio' name='multiplayer', value='true') 
+                    |    Yes
+                    br
+                    input(type='radio' name='multiplayer', value='false')
+                    |    No 
+                    br
+                div.form-group
+                    label(for='imageUrl') Image Url:
+                    input.form-control(type='text', placeholder='Game Image Url' name='imageUrl')
+                div.form-group
+                    label(for='description') Game Description:
+                    input.form-control(type='textarea', placeholder='Game description. 300 characters or less...', name='description')
+                button.btn.btn-primary(type='submit') Add Game

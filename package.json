@@ -1,0 +1,17 @@
+{
+  "name": "gamelibrary",
+  "version": "1.0.0",
+  "description": "Library for PS4 Games",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Myron Castill",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.1",
+    "pug": "^2.0.0-rc.2"
+  }
+}
